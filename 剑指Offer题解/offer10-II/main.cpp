@@ -5,17 +5,28 @@
 #include <iostream>
 
 using namespace std;
-1 2 3 4
-1 2 3
+
 class Solution {
 public:
     int numWays(int n) {
-
+        if(n==0) return 1;
+        if(n==1) return 1;
+        int sum=0, a=1, b=1, ans=0;
+        while (n>1) {
+            sum = a+b;
+            a = b;
+            b = sum;
+            ans = sum%1000000007;
+            n--;
+        }
+        cout<< ans <<endl;
+        return ans;
     }
 };
 
 int main()
 {
-    cout << "Hello World!" << endl;
+    Solution test;
+    test.numWays(20);
     return 0;
 }
